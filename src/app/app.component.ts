@@ -7,5 +7,5 @@ import { environment } from 'src/environments/environment';
   styles: []
 })
 export class AppComponent {
-  title = environment.appname; 
+
 }
