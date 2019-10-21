@@ -1,0 +1,22 @@
+<h2>{{ header }}</h2>
+<p>{{ description | uppercase }}</p>
+<p>
+    You have <mark [class]="counterClass">{{ numProjects }}</mark> projects
+    now.
+</p>
+
+<ul *ngIf="projects.length>0; else empty">
+    <li *ngFor="let project of projects">
+        <span>{{ project.name }}</span>
+        <a routerLink="{{ project.id }}" class="button">
+            <span>View project</span>
+        </a>
+    </li>
+</ul>
+<ng-template #empty> <i>No data yet</i> </ng-template>
+
+<a routerLink="new" class="button">
+    <span>New project</span>
+</a>
+
+<!--<pre>{{projects | json}}</pre>-->
