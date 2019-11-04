@@ -1,0 +1,18 @@
+<form>
+    <fieldset>
+        <legend>Project Form</legend>
+
+        <section>
+            <label for="id">Project ID</label>
+            <input name="id" type="number" [(ngModel)]="project.id" placeholder="Project Id" />
+        </section>
+        <section>
+            <label for="name">Project Name</label>
+            <input name="name" type="text" [(ngModel)]="project.name" placeholder="Project Name"/>
+        </section> 
+
+    </fieldset>
+    <input value="Save" type="submit" (click)="saveProject()" />
+    
+
+</form>

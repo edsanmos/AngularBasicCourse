@@ -1,23 +1,10 @@
 <h2>{{ header }}</h2>
 <p>{{ description | uppercase }}</p>
 
-<form>
-    <fieldset>
-        <legend>Project Form</legend>
 
-        <section>
-            <label for="id">Project ID</label>
-            <input name="id" type="text" [(ngModel)]="project.id" placeholder="Project Id" />
-        </section>
-        <section>
-            <label for="name">Project Name</label>
-            <input name="name" type="text" [(ngModel)]="project.name" placeholder="Project Name"/>
-        </section> 
+<app-new-project-form-component (EventoAlta)="procesaAlta($event)">
+</app-new-project-form-component>
 
-    </fieldset>
-    <input value="Save" type="submit" (click)="saveProject()" />
-    
 
-</form>
 
 

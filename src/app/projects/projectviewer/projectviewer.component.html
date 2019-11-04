@@ -1,4 +1,4 @@
 <h2>{{ header }}</h2>
 <p>{{ description | uppercase }}</p>
-<p>ProjectId: {{ projectId }}</p>
-<p>ProjectName: {{ projectName }}</p>
+<app-viewer-project-form-component [projectId]="projectId" [projectName]="projectName">
+</app-viewer-project-form-component>

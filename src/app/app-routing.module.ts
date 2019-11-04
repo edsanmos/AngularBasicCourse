@@ -35,6 +35,10 @@ const routes: Routes = [
 
 },
 {
+path: 'converter',
+loadChildren: './converter/converter.module#ConverterModule'
+},
+{
   path:'not-found',
   component:NotFoundComponent
 },
@@ -42,7 +46,6 @@ const routes: Routes = [
   path:'**',
   component:NotFoundComponent
 }
-
 
 
 ];
