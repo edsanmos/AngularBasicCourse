@@ -1,19 +1,18 @@
 <h2>{{ header }}</h2>
 <p>{{ description | uppercase }}</p>
 
-<app-dashboard-component [numProjects]="numProjects">
-</app-dashboard-component>
+<div *ngIf="projects$ | async as projects; else loading">
+    <app-dashboard-component [numProjects]="(projects$ | async)?.length"></app-dashboard-component>    
+    <app-projects-list-component [projects]="(projects$ | async)"></app-projects-list-component>
+</div>
 
+<ng-template #loading>Loading User Data...</ng-template>
 
-
-<app-projects-list-component [projects]="projects"></app-projects-list-component>
-
-<app-filter-projects-form-component 
-(EventoFiltro)="procesaFiltro($event)">    
+<app-filter-projects-form-component (EventoFiltro)="procesaFiltro($event)">
 </app-filter-projects-form-component>
 
 <a routerLink="new" class="button">
     <span>New project</span>
 </a>
 
-<!--pre>{{projects | json}}</pre-->
+<!--pre>{{projects$ | async | json}}</pre-->

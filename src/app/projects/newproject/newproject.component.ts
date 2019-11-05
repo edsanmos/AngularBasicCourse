@@ -24,8 +24,7 @@ export class NewprojectComponent implements OnInit {
   
   procesaAlta(proyeto:Project)
   {
-    this.ProjectSrv.agregarProyecto(proyeto);
-     
+    this.ProjectSrv.agregarProyecto(proyeto);     
     this.router.navigate(['/projects/']);   
     
   }

@@ -1,4 +1,13 @@
 <h2>{{ header }}</h2>
 <p>{{ description | uppercase }}</p>
-<app-viewer-project-form-component [projectId]="projectId" [projectName]="projectName">
-</app-viewer-project-form-component>
+
+<div *ngIf="project$ | async as project; else loading">
+    <app-viewer-project-form-component 
+    [projectId]="project.id" 
+    [projectName]="project.name">
+    </app-viewer-project-form-component>
+</div>
+
+
+<ng-template #loading>Loading Userddd Data...</ng-template>
+<!--pre>{{project$ | async | json}}</pre-->

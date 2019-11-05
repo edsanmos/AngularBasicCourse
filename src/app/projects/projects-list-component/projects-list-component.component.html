@@ -1,9 +1,11 @@
-<ul *ngIf="projects.length>0; else empty">
-    <li *ngFor="let project of projects">
-        <span>{{ project.name }}</span>
-        <a routerLink="{{ project.id }}" class="button">
-            <span>View project</span>
-        </a>
-    </li>
-</ul>
+<div *ngIf="projects; else empty">
+    <ul *ngIf="projects.length>0; else empty">
+        <li *ngFor="let project of projects">
+            <span>{{ project.name }}</span>
+            <a routerLink="{{ project._id }}" class="button">
+                <span>View project</span>
+            </a>
+        </li>
+    </ul>
+</div>
 <ng-template #empty> <i>No data yet</i> </ng-template>

@@ -12,6 +12,7 @@ import { ViewerProjectFormComponent } from './viewer-project-form-component/view
 import { NewProjectFormComponent } from './new-project-form-component/new-project-form-component.component';
 import { ProjectServiceService } from './project-service.service';
 import { ProjectServiceImplService } from './project-service-impl.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ProjectServiceImplService } from './project-service-impl.service';
   imports: [
     CommonModule,
     ProjectsRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ], providers: [
     {
       provide: ProjectServiceService,

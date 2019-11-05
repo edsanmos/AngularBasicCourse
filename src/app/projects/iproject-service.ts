@@ -1,9 +1,10 @@
 import { Project } from './models/project.models';
+import { Observable } from 'rxjs';
 
 export interface IprojectService {
-    filtrarPorNombre:(name:string)=>Project[];
-    filtrarPorId:(id:number)=>Project;
+    filtrarPorNombre:(name:string)=> Observable<Project[]>;
+    filtrarPorId:(id:number)=>Observable<Project>;
     agregarProyecto(proyecto:Project);
-    cuentaProyectos:()=>number;
-    obtenerProyectos:()=>Project[];
+    obtenerProyectos:()=>Observable<Project[]>;
+    
 }
