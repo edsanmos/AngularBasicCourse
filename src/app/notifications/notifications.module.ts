@@ -5,8 +5,9 @@ import { NotificationsRoutingModule } from './notifications-routing.module';
 import { SenderComponent } from './sender/sender.component';
 import { ReceiverComponent } from './receiver/receiver.component';
 import { FormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { ErrorInterceptorService } from './error-interceptor.service';
+import { AuditInterceptorService } from '../audit/audit-interceptor.service';
 
 
 @NgModule({
@@ -14,7 +15,7 @@ import { ErrorInterceptorService } from './error-interceptor.service';
   imports: [
     CommonModule,
     NotificationsRoutingModule,
-    FormsModule,HttpClientModule],
+    FormsModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

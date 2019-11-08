@@ -13,15 +13,17 @@ export class NewprojectComponent implements OnInit {
   public header = 'New Project';
   public description = 'Fill form to add new project';
   public project:Project; 
+
   
   constructor(private router: Router, private ProjectSrv:ProjectServiceService) { 
   }
   
   ngOnInit() {  
-     
+   
   }
  
-  
+ 
+
   procesaAlta(proyeto:Project)
   {
     this.ProjectSrv.agregarProyecto(proyeto);     

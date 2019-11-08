@@ -1,5 +1,14 @@
 <!-- Footer -->
 <h5>Angular Works on Footer!!!
-      </h5>
+      </h5>  
   
-  
+<div *ngIf="audits; else empty">
+    <h5>Auditoria de llamadas - Ultima llamada</h5>
+    <ul *ngIf="audits.length>0; else empty">
+        <li *ngIf="audits[audits.length-1] as audit">
+            <span>{{ audit }}</span>
+        </li>
+    </ul>
+</div>
+
+<ng-template #empty> <i>No audit data yet</i> </ng-template>

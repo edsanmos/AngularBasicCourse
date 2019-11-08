@@ -4,6 +4,7 @@ import { ProjectServiceService } from '../project-service.service';
 import { Project } from '../models/project.models';
 import { Observable } from 'rxjs';
 import { count } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
@@ -15,7 +16,9 @@ export class ProjectsComponent implements OnInit {
   public description = 'Manage your project list';
   public projects$:Observable<Project[]>;
   
-  constructor(private ProjectSrv:ProjectServiceService) {
+  
+  constructor(private ProjectSrv:ProjectServiceService, private route: ActivatedRoute) {
+    route.params.subscribe(val => {this.ngOnInit();});
   }
 
   ngOnInit() { 

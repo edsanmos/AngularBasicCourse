@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectviewerComponent } from './projectviewer/projectviewer.component';
@@ -12,7 +12,8 @@ import { ViewerProjectFormComponent } from './viewer-project-form-component/view
 import { NewProjectFormComponent } from './new-project-form-component/new-project-form-component.component';
 import { ProjectServiceService } from './project-service.service';
 import { ProjectServiceImplService } from './project-service-impl.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuditInterceptorService } from '../audit/audit-interceptor.service';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     ProjectsRoutingModule,
     FormsModule,
-    HttpClientModule
+    ReactiveFormsModule
   ], providers: [
     {
       provide: ProjectServiceService,

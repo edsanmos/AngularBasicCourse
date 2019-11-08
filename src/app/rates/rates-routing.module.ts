@@ -6,6 +6,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuditInterceptorService } from './audit-interceptor.service';
 
 
+
+
 const routes: Routes = [
   {
     path: '',
@@ -19,13 +21,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuditInterceptorService,
-      multi: true
-    }
-  ]
+  exports: [RouterModule]
 })
 export class RatesRoutingModule { }

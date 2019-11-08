@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HeroesComponent } from './heroes/heroes.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuditInterceptorService } from './audit/audit-interceptor.service';
 
 
 const HomeRouting = './home/home.module#HomeModule';
@@ -45,6 +47,10 @@ loadChildren: './converter/converter.module#ConverterModule'
 {
   path: 'notifications',
   loadChildren: './notifications/notifications.module#NotificationsModule'
+},
+{
+  path: 'security',
+  loadChildren: './security/security.module#SecurityModule'
 },
 {
   path:'not-found',

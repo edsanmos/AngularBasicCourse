@@ -7,6 +7,9 @@ import { FooterComponent } from './shell/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+import { AuditInterceptorService } from '../audit/audit-interceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http/http';
+
 
 
 @NgModule({
@@ -15,6 +18,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
     CommonModule, 
     RouterModule
   ],
-  exports: [ShellComponent] 
+  exports: [ShellComponent]
 })
 export class CoreModule { }

@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HeroesComponent } from './heroes/heroes.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuditInterceptorService } from './audit/audit-interceptor.service';
+
 
 @NgModule({
   declarations: [
@@ -14,9 +17,16 @@ import { HeroesComponent } from './heroes/heroes.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuditInterceptorService,
+      multi:true
+    }
+  ]
 })
 export class AppModule { }

@@ -1,18 +1,21 @@
-<form>
+<form [formGroup]="formGroup">
     <fieldset>
         <legend>Project Form</legend>
 
         <section>
             <label for="id">Project ID</label>
-            <input name="id" type="number" [(ngModel)]="project.id" placeholder="Project Id" />
+            <input name="id" type="number" formControlName="id" placeholder="Project Id" />
         </section>
         <section>
             <label for="name">Project Name</label>
-            <input name="name" type="text" [(ngModel)]="project.name" placeholder="Project Name"/>
+            <input name="name" type="text" formControlName="name" placeholder="Project Name"/>
         </section> 
 
     </fieldset>
-    <input value="Save" type="submit" (click)="saveProject()" />
     
-
+    <button (click)="saveProject()" 
+    [disabled]="formGroup.invalid">Save</button>
+   
 </form>
+<span>{{ getError('name')}}</span>
+<span>{{ getError('id')}}</span>
