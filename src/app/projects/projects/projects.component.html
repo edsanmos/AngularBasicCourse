@@ -1,9 +1,9 @@
 <h2>{{ header }}</h2>
 <p>{{ description | uppercase }}</p>
 
-<div *ngIf="projects$ | async as projects; else loading">
-    <app-dashboard-component [numProjects]="(projects$ | async)?.length"></app-dashboard-component>    
-    <app-projects-list-component [projects]="(projects$ | async)"></app-projects-list-component>
+<div *ngIf="projects; else loading">
+    <app-dashboard-component [numProjects]="projects.length"></app-dashboard-component>    
+    <app-projects-list-component [projects]="projects"></app-projects-list-component>
 </div>
 
 <ng-template #loading>Loading User Data...</ng-template>

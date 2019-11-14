@@ -14,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProjectsComponent implements OnInit {
   public header = 'Projects';
   public description = 'Manage your project list';
-  public projects$:Observable<Project[]>;
+  public projects=<Project[]>{};
   
   
   constructor(private ProjectSrv:ProjectServiceService, private route: ActivatedRoute) {
@@ -22,12 +22,16 @@ export class ProjectsComponent implements OnInit {
   }
 
   ngOnInit() { 
-    this.projects$=this.ProjectSrv.obtenerProyectos();
+    this.ProjectSrv.obtenerProyectos().subscribe(list => (this.projects = list));
   }
+
   procesaFiltro(nombre:string)
   {
     if(nombre.trim()!=""){
-      this.projects$ = this.ProjectSrv.filtrarPorNombre(nombre);
+      this.ProjectSrv.filtrarPorNombre(nombre).subscribe(list => (this.projects = list));
+    }else{
+      this.ProjectSrv.obtenerProyectos().subscribe(list => (this.projects = list));
     }
+
   }
 }
